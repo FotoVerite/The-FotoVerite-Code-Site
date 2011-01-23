@@ -7,4 +7,4 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 
-Korman::Application.load_tasks
+Fotoverite::Application.load_tasks

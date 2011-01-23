@@ -1,4 +1,4 @@
-Korman::Application.routes.draw do
+Fotoverite::Application.routes.draw do
 
   root :to => 'static_pages#show'
   get 'site/:name' =>  'static_pages#show'

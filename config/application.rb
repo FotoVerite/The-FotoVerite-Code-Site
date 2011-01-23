@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
-module Korman
+module Fotoverite
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -39,9 +39,6 @@ module Korman
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
     config.autoload_paths += %W(#{config.root}/lib) 
-    config.middleware.use ExceptionNotifier,
-        :email_prefix => "[Korman] ",
-        :sender_address => %("Korman Error"),
-        :exception_recipients => %w(kevin@novafabrica.com matt@novafabrica.com)
+    
   end
 end

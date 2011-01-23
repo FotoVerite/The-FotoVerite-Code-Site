@@ -1,5 +1,5 @@
-BRAND = "Korman Commercial Properties"
-COMPANY = "Korman Commercial Properties"
+BRAND = "Fotoverite Commercial Properties"
+COMPANY = "Fotoverite Commercial Properties"
 WEBSITE = "kormancommercial.com"
 
 SUPPORT_EMAIL = "support@kormancommercial.com"

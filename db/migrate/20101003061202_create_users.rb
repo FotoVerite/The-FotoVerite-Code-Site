@@ -21,7 +21,7 @@ class CreateUsers < ActiveRecord::Migration
     add_index :users, :last_name
     add_index :users, :remember_token
     
-    Factory(:user, :username => 'fotoverite', :password => "markie123", :password_confirmation => "markie123") if Rails.env == "development"
+    Factory(:user, :username => 'fotoverite', :password => "password", :password_confirmation => "password") if Rails.env == "development"
   end
 
   def self.down
