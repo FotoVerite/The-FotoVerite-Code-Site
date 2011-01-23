@@ -1,0 +1,7 @@
+<div id="navigation">
+  <%- unless @hide_navigation -%>
+  <ul>
+    <li><%= link_to('Logout', staff_logout_path, :method => :delete) %></li>
+  </ul>
+  <%- end -%>
+</div>
