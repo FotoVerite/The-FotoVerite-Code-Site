@@ -1,0 +1,135 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "base";
+
+body {
+  background:#595959;
+  color:$basic-gray;
+}
+
+@font-face {
+    font-family: 'ZeroZeroIsRegular';
+    src: url('/fonts/zero_and_zero_is-webfont.eot?') format('eot'),
+         url('/fonts/zero_and_zero_is-webfont.ttf') format('truetype'),
+         url('/fonts/zero_and_zero_is-webfont.svg#webfontJ4OlKjBC') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GessoRegular';
+    src: url('/fonts/GESSO___-webfont.eot?') format('eot'),
+         url('/fonts/GESSO___-webfont.woff') format('woff'),
+         url('/fonts/GESSO___-webfont.ttf') format('truetype'),
+         url('/fonts/GESSO___-webfont.svg#webfontamIp8rmu') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+ul.nav {
+  @include horizontal-list(20px);
+  text-align:center;
+  li:hover {
+    background-color:green;
+  }
+  a {
+    @include link-colors(gray, gray, gray, gray);
+    @include unstyled-link
+    }
+  }
+
+.container {
+  width:960px;
+  margin:auto;
+  background:#02030A;
+  border-left: 5px solid $background-gray;
+  border-right: 5px solid $background-gray;
+}
+
+#content {
+  padding:10px;
+  background:url(../images/main-bg.png) right top no-repeat;
+  min-height:600px;
+}
+
+h1, h2, h3 {
+  margin:10px 0px;
+}
+
+footer {
+  height:50px;
+  background:$background-gray;
+  position:relative;
+}
+
+footer a {
+  position:absolute;
+  bottom:5px;
+  right:5px;
+}
+
+
+/* ============= */
+/* = Biography = */
+/* ============= */
+
+#bio-container {
+  margin-top:60px;
+}
+
+#big-hello {
+  display:block;
+  color:#580740;
+  font-size:80px;
+  font-family:'GessoRegular';
+  letter-spacing: 10px;
+  float:left;
+  margin-left:25px;
+}
+
+#bio {
+  float:left;
+  width:600px;
+  margin-left:50px;
+}
+
+#bio p {
+  margin:8px 0px;
+}
+
+#influences-header {
+  margin:30px 0px;
+  text-align:center;
+  font-size:36px;
+  color:#241A51;
+  font-family:'GessoRegular';
+  
+}
+
+#influences {
+  width:500px;
+  margin:auto;
+}
+
+#influences h3 {
+  font-size:24px;
+}
+
+#influences li {
+  margin:5px 0;
+  font-size:16px;
+}
+
+#code-influences {
+  float:left;
+}
+
+#photo-influences {
+  float:right;
+}
+

@@ -1,8 +1,14 @@
 Fotoverite::Application.routes.draw do
 
-  root :to => 'static_pages#show'
-  get 'site/:name' =>  'static_pages#show'
-  
+  match '' => 'static_pages#show', :name => "portfolios", :constraints => { :subdomain => 'portfolios' }
+  match '/' => 'static_pages#show', :name => "projects", :constraints => { :subdomain => 'projects' }
+  match '/' => 'static_pages#show', :name => "log", :constraints => { :subdomain => 'log' }
+  match '/' => 'static_pages#show', :name => "sites", :constraints => { :subdomain => 'sites' }
+  match '/' => 'static_pages#show', :name => "testimonials", :constraints => { :subdomain => 'testimonials' }
+  match '/' => 'static_pages#show', :name => "biography", :constraints => { :subdomain => 'bio' }
+
+  root :to => 'static_pages#show', :name => "home"
+
   namespace :staff do
     resource :access, :controller => "access", :except => [:edit, :update] do
       member do
@@ -26,6 +32,18 @@ Fotoverite::Application.routes.draw do
       end
     end
 
+    resources :portfolios  do
+      member do
+        get :delete
+      end
+    end
+
+    resources :projects  do
+      member do
+        get :delete
+      end
+    end
+    
   end
 
   # The priority is based upon order of creation:

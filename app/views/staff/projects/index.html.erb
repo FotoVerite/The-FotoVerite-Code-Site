@@ -1,0 +1,10 @@
+<%- @page_title = "Projects" -%>
+
+<div class="project listing">
+  <h1><%= @page_title %></h1>
+    
+  <%= link_to("Create New Project", new_staff_project_path, :class => 'action') %>
+
+  <%= render(:partial => 'list') %>
+
+</div>

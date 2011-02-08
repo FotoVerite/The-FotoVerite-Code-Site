@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset='UTF-8' />
+    <title>Output of rails_best_practices</title>
+    <style type='text/css'>
+      /*<![CDATA[*/
+        body {
+          color: #333;
+          background: #eee;
+          padding: 0 20px;
+        }
+        h1 {
+          color: ##4E4E4E;
+        }
+        table {
+          background: white;
+          border: 1px solid #666;
+          border-collapse: collapse;
+          margin: 20px 0;
+          font-size: 14px;
+        }
+        table th, table td {
+          padding: 4px;
+          border: 1px solid #D0D0D0;
+        }
+        table th {
+          background-color: #DFC;
+          color: #337022;
+        }
+        table td.filename {
+          color: #ED1556;
+        }
+        table tr:hover {
+          background-color: #FFFFC0;
+        }
+      /*]]>*/
+    </style>
+  </head>
+  <body>
+    <h1>rails_best_practices output</h1>
+    <h2>
+      Please go to
+      <a href='http://rails-bestpractices.com' target='_blank'>http://rails-bestpractices.com</a>
+      to see more useful Rails Best Practices.
+    </h2>
+    <h2>
+      Found 9 errors.
+    </h2>
+    <table>
+      <tr>
+        <th>Filename</th>
+        <th>Line Number</th>
+        <th>Error Message</th>
+      </tr>
+      <tr>
+        <td class='filename'>
+          ./db/schema.rb
+        </td>
+        <td class='line-number'>51</td>
+        <td class='message'>
+          <a href='http://rails-bestpractices.com/posts/21-always-add-db-index' target='_blank'>always add db index (taggings => [tagger_id, tagger_type])</a>
+        </td>
+      </tr>
+      <tr>
+        <td class='filename'>
+          ./app/controllers/staff/access_controller.rb
+        </td>
+        <td class='line-number'>15,48</td>
+        <td class='message'>
+          <a href='http://rails-bestpractices.com/posts/22-use-before_filter' target='_blank'>use before_filter for new,forgot_password</a>
+        </td>
+      </tr>
+      <tr>
+        <td class='filename'>
+          ./app/controllers/staff/access_controller.rb
+        </td>
+        <td class='line-number'>20,39</td>
+        <td class='message'>
+          <a href='http://rails-bestpractices.com/posts/22-use-before_filter' target='_blank'>use before_filter for create,destroy</a>
+        </td>
+      </tr>
+      <tr>
+        <td class='filename'>
+          ./app/controllers/staff/projects_controller.rb
+        </td>
+        <td class='line-number'>16,34</td>
+        <td class='message'>
+          <a href='http://rails-bestpractices.com/posts/22-use-before_filter' target='_blank'>use before_filter for create,update</a>
+        </td>
+      </tr>
+      <tr>
+        <td class='filename'>
+          ./app/controllers/staff/projects_controller.rb
+        </td>
+        <td class='line-number'>29,50,54</td>
+        <td class='message'>
+          <a href='http://rails-bestpractices.com/posts/22-use-before_filter' target='_blank'>use before_filter for edit,show,delete</a>
+        </td>
+      </tr>
+      <tr>
+        <td class='filename'>
+          ./app/controllers/staff/users_controller.rb
+        </td>
+        <td class='line-number'>10,29,34,44</td>
+        <td class='message'>
+          <a href='http://rails-bestpractices.com/posts/22-use-before_filter' target='_blank'>use before_filter for show,edit,update,delete</a>
+        </td>
+      </tr>
+      <tr>
+        <td class='filename'>
+          ./app/views/staff/projects/_list.html.erb
+        </td>
+        <td class='line-number'>1</td>
+        <td class='message'>
+          <a href='http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable' target='_blank'>replace instance variable with local variable</a>
+        </td>
+      </tr>
+      <tr>
+        <td class='filename'>
+          ./app/views/staff/projects/_list.html.erb
+        </td>
+        <td class='line-number'>21</td>
+        <td class='message'>
+          <a href='http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable' target='_blank'>replace instance variable with local variable</a>
+        </td>
+      </tr>
+      <tr>
+        <td class='filename'>
+          ./app/views/staff/users/_form.html.erb
+        </td>
+        <td class='line-number'>45</td>
+        <td class='message'>
+          <a href='http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable' target='_blank'>replace instance variable with local variable</a>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

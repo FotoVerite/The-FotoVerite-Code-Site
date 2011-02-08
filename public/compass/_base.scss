@@ -1,0 +1,11 @@
+$font-color             : #333;
+$basic-gray : gray;
+$background-gray:#333;
+
+@import "compass/reset";
+@import "compass/utilities";
+
+.clear, .clearfix {
+  display:block;
+  clear:both;
+}

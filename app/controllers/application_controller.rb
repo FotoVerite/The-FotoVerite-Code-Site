@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include SessionMethods
+    
   layout 'staff'
 
   protect_from_forgery # See ActionController::RequestForgeryProtection for details

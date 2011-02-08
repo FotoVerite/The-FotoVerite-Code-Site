@@ -8,7 +8,10 @@ gem 'paperclip'
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'jammit'
-gem 'compass'
+gem "compass", ">= 0.10.6"
+gem 'acts-as-taggable-on'
+gem 'delayed_job'
+
 
 group :development do 
   gem 'thin'

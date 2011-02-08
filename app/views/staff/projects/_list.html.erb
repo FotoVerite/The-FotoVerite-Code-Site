@@ -1,0 +1,25 @@
+<table class="list">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+
+  <%- @projects.each do |project| -%>
+  <tr>
+    <td><%= project.first_name %></td>
+    <td><%= project.last_name %></td>
+    <td><%= project.full_address.html_safe %></td>
+    <td><%= project.phone %></td>
+    <td><%= link_to('Edit', edit_staff_project_path(project), :class => 'action') %></td>
+    <td><%= link_to('Delete', delete_staff_project_path(project), :class => 'action') %></td>
+  </tr>
+  <%- end -%>
+</table>
+
+<div class="pagination">
+  <%= will_paginate(@projects, :class => 'apple_pagination') %>
+</div>

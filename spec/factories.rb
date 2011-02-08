@@ -18,22 +18,12 @@ end
 Factory.define :admin, :parent => :user do |p|
 end
 
-Factory.define :person do |p|
-  p.name "Kevin Sparse"
-  p.title "Head of Marketing"
-  p.biography_text "This is a bio"
-  p.position 1
-  p.visible true
-end
-
-Factory.define :artist do |p|
-  p.name "Kevin Pretentious"
-  p.biography_text "This is a bio"
-  p.visible true
-end
-
 Factory.define :portfolio do |p|
   p.name "Kevin Pretentious"
-  p.rss_feed "http://www.feed.atom"
   p.visible true
+end
+
+Factory.define :project do |p|
+  p.name "Kevin Pretentious"
+  p.position 1
 end
