@@ -18,7 +18,7 @@ class StaticPagesController < ApplicationController
     end
 
     def ensure_valid
-      valid_pages = ['about', 'home', 'biography']
+      valid_pages = ['about', 'home', 'biography', 'portfolios', 'projects']
       unless valid_pages.include?(current_page)
         render_404
       end

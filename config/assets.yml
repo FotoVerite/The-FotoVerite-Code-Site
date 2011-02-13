@@ -4,7 +4,16 @@ javascripts:
     general:
         - public/javascripts/jquery.js
         - public/javascripts/rails.js
+        - public/javascripts/jquery.js
         - public/javascripts/application.js
+        - public/javascripts/isotope.js
+        
+    staff:
+        - public/javascripts/jquery.js
+        - public/javascripts/rails.js
+        - public/javascripts/application.js
+        - public/javascripts/tag_cloud_select.js
+        - public/javascripts/photo_inputs.js
  
 stylesheets:
     public:

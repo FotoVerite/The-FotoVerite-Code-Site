@@ -7,7 +7,7 @@ class PostOffice < ActionMailer::Base
     mail(
       :to => user.email,
       :subject => "Password Reset",
-      :headers  => {"Reply-to" => "#{user.email}"}
+      :reply_to => user.email
     )
   end
 

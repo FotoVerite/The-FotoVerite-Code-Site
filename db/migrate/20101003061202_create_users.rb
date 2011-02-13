@@ -7,8 +7,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_name,        :limit => 50
       t.string :username,         :limit => 20
       t.string :email,            :limit => 255
-      t.string :hashed_password,  :limit => 40,  :default => "", :null => false
-      t.string :salt,             :limit => 40,  :default => "", :null => false
+      t.string :hashed_password,  :limit => 80,  :default => "", :null => false
+      t.string :salt,             :limit => 80,  :default => "", :null => false
       t.boolean :enabled,                        :default => true
       #Tokens
       t.string :remember_token,         :limit => 40

@@ -4,13 +4,14 @@ gem 'acts_as_list'
 gem 'mysql'
 gem 'nice_password'
 gem "will_paginate", "3.0.pre"
-gem 'paperclip'
+gem 'paperclip', '2.3.8'
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'jammit'
 gem "compass", ">= 0.10.6"
 gem 'acts-as-taggable-on'
 gem 'delayed_job'
+gem 'bcrypt-ruby', :require => 'bcrypt'  
 
 
 group :development do 

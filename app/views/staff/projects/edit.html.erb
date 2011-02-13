@@ -5,7 +5,7 @@
 <div class="project edit">
   <h1><%= @page_title %></h1>
 
-  <%= form_for([:staff, @project]) do |f| -%>
+  <%= form_for([:staff, @project], :html => {:multipart => true}) do |f| -%>
     <%= render(:partial => "form", :locals => {:f => f}) %>
     <div id="operations">
       <%= submit_tag("Update Project") %>

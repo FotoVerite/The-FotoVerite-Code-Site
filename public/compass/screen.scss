@@ -10,6 +10,10 @@ body {
   color:$basic-gray;
 }
 
+header, section {
+  display:block;
+}
+
 @font-face {
     font-family: 'ZeroZeroIsRegular';
     src: url('/fonts/zero_and_zero_is-webfont.eot?') format('eot'),
@@ -62,6 +66,7 @@ h1, h2, h3 {
 }
 
 footer {
+  display: block;
   height:50px;
   background:$background-gray;
   position:relative;
@@ -73,6 +78,33 @@ footer a {
   right:5px;
 }
 
+/* ============ */
+/* = Projects = */
+/* ============ */
+
+.project-tag-cloud {
+  width:400px;
+  float:left;
+}
+
+.tech-cloud {
+  float:right;
+}
+
+.project-tag-cloud h2 {
+  margin:10px 0px;
+  font-size:32px;
+  color:#580740;
+  font-family:'GessoRegular';
+}
+
+.project-div  {
+  width:220px;
+  height:130px;
+  background:red;
+  float:left;
+  margin-right:15px;
+}
 
 /* ============= */
 /* = Biography = */
@@ -133,3 +165,11 @@ footer a {
   float:right;
 }
 
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}

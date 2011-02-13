@@ -6,8 +6,8 @@ Fotoverite::Application.routes.draw do
   match '/' => 'static_pages#show', :name => "sites", :constraints => { :subdomain => 'sites' }
   match '/' => 'static_pages#show', :name => "testimonials", :constraints => { :subdomain => 'testimonials' }
   match '/' => 'static_pages#show', :name => "biography", :constraints => { :subdomain => 'bio' }
-
   root :to => 'static_pages#show', :name => "home"
+  get "site/:name"  => 'static_pages#show', :as => "static_page"
 
   namespace :staff do
     resource :access, :controller => "access", :except => [:edit, :update] do

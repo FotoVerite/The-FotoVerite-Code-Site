@@ -8,10 +8,9 @@ describe User do
   end
 
   it "should create salt and salt password on create" do
-    Time.stub!(:now).and_return(Time.parse('1/2/3'))
     @User= Factory(:user, :username => "JimAkAStatic")
-    @User.salt.should == "5c7a04dfa3c8b5f2d851dac39b2f0b299afa6bb6"
-    @User.hashed_password.should == "d26ead57d1c9cf42fd04b4448e574f450c93621b"
+    @User.salt.should_not be_nil
+    @User.hashed_password.should_not be_nil
   end
 
   it "should call nil on password attribute after create" do

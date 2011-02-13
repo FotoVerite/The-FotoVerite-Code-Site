@@ -70,6 +70,12 @@ describe Staff::ProjectsController do
       assigns[:project].new_record?.should be_true
     end
 
+    it "should find the amount of projects + 1 and assign it to count" do
+      get_new
+      assigns[:count].should == Project.count + 1
+    end
+
+
     it "should be a success" do
       get_new
       response.should be_success
@@ -120,6 +126,21 @@ describe Staff::ProjectsController do
         response.should render_template(:new)
       end
 
+      it "should find the amount of projects + 1 and assign it to count" do
+        post_create( :name => nil)
+        assigns[:count].should == Project.count + 1
+      end
+
+      it "should find all technology tags" do
+        post_create( :name => nil)
+        assigns[:technologies].should == Project.tag_counts_on(:technologies)
+      end
+
+      it "should find all feature tags" do
+        post_create( :name => nil)
+        assigns[:features].should == Project.tag_counts_on(:features)
+      end
+
     end
 
     def post_create(options = {})
@@ -148,6 +169,21 @@ describe Staff::ProjectsController do
     it "should render the edit template" do
       get_edit
       response.should render_template(:edit)
+    end
+
+    it "should find the amount of projects and assign it to count" do
+      get_edit
+      assigns[:count].should == Project.count
+    end
+
+    it "should find all technology tags" do
+      get_edit
+      assigns[:technologies].should == Project.tag_counts_on(:technologies)
+    end
+
+    it "should find all feature tags" do
+      get_edit
+      assigns[:features].should == Project.tag_counts_on(:features)
     end
 
     def get_edit
@@ -180,15 +216,30 @@ describe Staff::ProjectsController do
       project = Project.last
       response.should redirect_to(staff_project_path(project))
     end
-    
-      context "unsuccessful" do
 
-        it "should render template edit" do
-          put_update( :name => nil)
-          response.should render_template(:edit)
-        end
+    context "unsuccessful" do
 
+      it "should render template edit" do
+        put_update( :name => nil)
+        response.should render_template(:edit)
       end
+
+      it "should find the amount of projects and assign it to count" do
+        put_update( :name => nil)
+        assigns[:count].should == Project.count
+      end
+
+      it "should find all technology tags" do
+        put_update( :name => nil)
+        assigns[:technologies].should == Project.tag_counts_on(:technologies)
+      end
+
+      it "should find all feature tags" do
+        put_update( :name => nil)
+        assigns[:features].should == Project.tag_counts_on(:features)
+      end
+
+    end
 
 
     def put_update(options ={})

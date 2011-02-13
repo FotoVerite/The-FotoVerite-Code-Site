@@ -3,8 +3,62 @@
 <div class="section">
 
   <dl>
-    <dt><%= f.label 'first_name', "First Name" %></dt>
-    <dd><%= f.text_field(:first_name) %></dd>
+    <dt><%= f.label 'name' %></dt>
+    <dd><%= f.text_field(:name) %></dd>
+  </dl>
+  
+  <dl>
+    <dt><%= f.label 'link' %></dt>
+    <dd><%= f.text_field(:link) %></dd>
+  </dl>
+  
+  
+  <dl>
+    <dt><%= f.label 'photo' %></dt>
+    <dd><%= f.file_field(:photo) %></dd>
   </dl>
 
+  <dl>
+    <dt><%= f.label 'description' %></dt>
+    <dd><%= f.text_area(:description, :size => "80x10") %></dd>
+  </dl>
+  
+  <dl>
+    <dt><%= f.label 'position' %></dt>
+    <dd><%= f.select(:position, [*1..@count]) %></dd>
+  </dl>
+  
+  <dl>
+    <dt><%= f.label :feature_list, 'Features' %></dt>
+    <dd><%= f.text_field(:feature_list, :size => 100) %></dd>
+  </dl>
+  
+  <dl id="feature-cloud">
+  	<dt><%= f.label :all_features %></dt>
+    <dd>	
+      <%= @features.map {|tag| link_to tag.name, '#', :id => tag.name}.join(' ').html_safe %>
+  	</dd>
+  </dl>
+  
+  <dl>
+    <dt><%= f.label :technology_list, 'Technologies' %></dt>
+    <dd><%= f.text_field(:technology_list, :size => 100) %></dd>
+  </dl>
+  
+  <dl id="tech-cloud">
+  	<dt><%= f.label :all_technologies %></dt>
+    <dd>	
+      <%= @technologies.map {|tag| link_to tag.name, '#', :id => tag.name}.join(' ').html_safe %>
+  	</dd>
+  </dl>
+  
 </div>
+<%= content_for :head do %>
+  <script>
+  $(document).ready(function() {
+    $("#feature-cloud").tagList($('#project_feature_list'));
+    $("#tech-cloud").tagList($('#project_technology_list'));
+    
+  });
+  </script>
+<% end  %>

@@ -5,4 +5,11 @@ class Project < ActiveRecord::Base
   
   validates :name, :presence => true
   
+  
+  has_attached_file :photo,
+    :url =>                    "/images/projects-photos/:style/:id/:basename.:extension",
+    :path => ":rails_root/public/images/projects-photos/:style/:id/:basename.:extension",
+    :styles => { :large => "358x", :thumb => '220x130' },
+    :default_style => :large
+  
 end

@@ -37,14 +37,14 @@ class User < ActiveRecord::Base
   after_save :sanitize_object
 
   def create_hashed_password
-    self.salt = User.make_salt(self.username)
-    self.hashed_password = User.hash_with_salt(self.password, self.salt)
+    self.salt = BCrypt::Engine.generate_salt
+    self.hashed_password = BCrypt::Engine.hash_secret(self.password, salt)
   end
 
   def update_hashed_password
     if !self.password.blank?
-      self.salt = User.make_salt(self.username) if self.salt.blank?
-      self.hashed_password = User.hash_with_salt(self.password, self.salt)
+      self.salt = BCrypt::Engine.generate_salt   if self.salt.blank?
+      self.hashed_password = BCrypt::Engine.hash_secret(self.password, self.salt)
     end
   end
 
@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
   end
 
   def is_authenticated?(password="")
-    return (self.hashed_password == User.hash_with_salt(password, self.salt))
+    return (self.hashed_password == BCrypt::Engine.hash_secret(password, self.salt))
   end
 
   def try_to_reset_password( new_password, reconfirm_password)
@@ -137,15 +137,6 @@ class User < ActiveRecord::Base
     save(:validate => false)
   end
 
-
-  def self.make_salt(string="")
-    Digest::SHA1.hexdigest("Use #{string} and #{Time.now}")
-  end
-
-  def self.hash_with_salt(password="", salt="")
-    Digest::SHA1.hexdigest("Put #{salt} on the #{password}")
-  end
-
   def self.create_token(string="")
     Digest::SHA1.hexdigest("Take their name #{string} and #{Time.now}")
   end
@@ -159,5 +150,5 @@ class User < ActiveRecord::Base
   def email_reset_token(user)
     PostOffice.email_reset_token(user).deliver
   end
-  
+
 end

@@ -9,8 +9,10 @@ class Staff::ProjectsController < ApplicationController
   end
 
   def new
-    @project_count = Project.count + 1
-    @project = Project.new(:position => @project_count)
+    @count = Project.count + 1
+    @project = Project.new(:position => @count)
+    @technologies = Project.tag_counts_on(:technologies)
+    @features = Project.tag_counts_on(:features)
   end
 
   def create
@@ -21,14 +23,18 @@ class Staff::ProjectsController < ApplicationController
       flash[:notice] = 'Property type was successfully created.'
       redirect_to staff_project_path(@project)
     else
-      @project_count = Project.count + 1
+      @technologies = Project.tag_counts_on(:technologies)
+      @features = Project.tag_counts_on(:features)
+      @count = Project.count + 1
       render("new")
     end
   end
 
   def edit
     @project = Project.find(params[:id])
-    @project_count = Project.count
+    @count = Project.count
+    @technologies = Project.tag_counts_on(:technologies)
+    @features = Project.tag_counts_on(:features)
   end
 
   def update
@@ -42,7 +48,9 @@ class Staff::ProjectsController < ApplicationController
       flash[:notice] = 'Property type was successfully updated.'
       redirect_to staff_project_path(@project)
     else
-      @project_count = Project.count
+      @technologies = Project.tag_counts_on(:technologies)
+      @features = Project.tag_counts_on(:features)
+      @count = Project.count
       render("edit")
     end
   end
@@ -65,6 +73,5 @@ class Staff::ProjectsController < ApplicationController
     end
     redirect_to staff_projects_path
   end
-
 
 end
