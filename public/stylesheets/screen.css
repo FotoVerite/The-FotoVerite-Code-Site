@@ -151,7 +151,7 @@ ul.nav a:active, ul.nav a:focus {
 }
 
 /* line 50, ../compass/screen.scss */
-.container {
+.wrapper {
   width: 960px;
   margin: auto;
   background: #02030A;
@@ -159,19 +159,24 @@ ul.nav a:active, ul.nav a:focus {
   border-right: 5px solid #333333;
 }
 
-/* line 58, ../compass/screen.scss */
+/* line 59, ../compass/screen.scss */
 #content {
   padding: 10px;
   background: url(../images/main-bg.png) right top no-repeat;
   min-height: 600px;
 }
 
-/* line 64, ../compass/screen.scss */
+/* line 65, ../compass/screen.scss */
+#container {
+  padding-bottom: 5px;
+}
+
+/* line 69, ../compass/screen.scss */
 h1, h2, h3 {
   margin: 10px 0px;
 }
 
-/* line 68, ../compass/screen.scss */
+/* line 73, ../compass/screen.scss */
 footer {
   display: block;
   height: 50px;
@@ -179,7 +184,7 @@ footer {
   position: relative;
 }
 
-/* line 75, ../compass/screen.scss */
+/* line 80, ../compass/screen.scss */
 footer a {
   position: absolute;
   bottom: 5px;
@@ -189,18 +194,18 @@ footer a {
 /* ============ */
 /* = Projects = */
 /* ============ */
-/* line 85, ../compass/screen.scss */
+/* line 90, ../compass/screen.scss */
 .project-tag-cloud {
   width: 400px;
   float: left;
 }
 
-/* line 90, ../compass/screen.scss */
+/* line 95, ../compass/screen.scss */
 .tech-cloud {
   float: right;
 }
 
-/* line 94, ../compass/screen.scss */
+/* line 99, ../compass/screen.scss */
 .project-tag-cloud h2 {
   margin: 10px 0px;
   font-size: 32px;
@@ -208,24 +213,83 @@ footer a {
   font-family: 'GessoRegular';
 }
 
-/* line 101, ../compass/screen.scss */
+/* line 106, ../compass/screen.scss */
 .project-div {
   width: 220px;
   height: 130px;
   background: red;
   float: left;
   margin-right: 15px;
+  -moz-box-shadow: 0px 0px 10px white;
+  -webkit-box-shadow: 0px 0px 4px white;
+  box-shadow: 0px 0px 4px white;
+}
+
+/**** Isotope Filtering ****/
+/* line 120, ../compass/screen.scss */
+.isotope-item {
+  z-index: 2;
+}
+
+/* line 124, ../compass/screen.scss */
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+/* line 132, ../compass/screen.scss */
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+  -moz-transition-duration: 0.8s;
+  /*     -o-transition-duration: 0.8s;*/
+  transition-duration: 0.8s;
+}
+
+/* line 140, ../compass/screen.scss */
+.isotope {
+  -webkit-transition-property: height, width;
+  -moz-transition-property: height, width;
+  /*     -o-transition-property: height, width;*/
+  transition-property: height, width;
+}
+
+/* disable CSS transitions for containers with infinite scrolling*/
+/* line 148, ../compass/screen.scss */
+.isotope.infinite-scrolling {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+/* line 155, ../compass/screen.scss */
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+  -moz-transition-property: -moz-transform, opacity;
+  /*     -o-transition-property:      -o-transform, opacity;*/
+  transition-property: transform, opacity;
+}
+
+/* line 163, ../compass/screen.scss */
+.isotope.no-transition,
+.isotope.no-transition .isotope-item {
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  /*     -o-transition-duration: 0s;*/
+  transition-duration: 0s;
 }
 
 /* ============= */
 /* = Biography = */
 /* ============= */
-/* line 113, ../compass/screen.scss */
+/* line 174, ../compass/screen.scss */
 #bio-container {
   margin-top: 60px;
 }
 
-/* line 117, ../compass/screen.scss */
+/* line 178, ../compass/screen.scss */
 #big-hello {
   display: block;
   color: #580740;
@@ -236,19 +300,19 @@ footer a {
   margin-left: 25px;
 }
 
-/* line 127, ../compass/screen.scss */
+/* line 188, ../compass/screen.scss */
 #bio {
   float: left;
   width: 600px;
   margin-left: 50px;
 }
 
-/* line 133, ../compass/screen.scss */
+/* line 194, ../compass/screen.scss */
 #bio p {
   margin: 8px 0px;
 }
 
-/* line 137, ../compass/screen.scss */
+/* line 198, ../compass/screen.scss */
 #influences-header {
   margin: 30px 0px;
   text-align: center;
@@ -257,39 +321,39 @@ footer a {
   font-family: 'GessoRegular';
 }
 
-/* line 146, ../compass/screen.scss */
+/* line 207, ../compass/screen.scss */
 #influences {
   width: 500px;
   margin: auto;
 }
 
-/* line 151, ../compass/screen.scss */
+/* line 212, ../compass/screen.scss */
 #influences h3 {
   font-size: 24px;
 }
 
-/* line 155, ../compass/screen.scss */
+/* line 216, ../compass/screen.scss */
 #influences li {
   margin: 5px 0;
   font-size: 16px;
 }
 
-/* line 160, ../compass/screen.scss */
+/* line 221, ../compass/screen.scss */
 #code-influences {
   float: left;
 }
 
-/* line 164, ../compass/screen.scss */
+/* line 225, ../compass/screen.scss */
 #photo-influences {
   float: right;
 }
 
-/* line 168, ../compass/screen.scss */
+/* line 229, ../compass/screen.scss */
 .isotope-item {
   z-index: 2;
 }
 
-/* line 172, ../compass/screen.scss */
+/* line 233, ../compass/screen.scss */
 .isotope-hidden.isotope-item {
   pointer-events: none;
   z-index: 1;

@@ -1,13 +1,13 @@
 <div class="project-tag-cloud">
 <h2>Features</h2>
-    <%= Project.tag_counts_on(:features).map {|tag| link_to tag.name, '#', :id => tag.name}.join(' ').html_safe %>
+    <%= Project.tag_counts_on(:features).map {|tag| link_to tag.name, '#', 'data-filter' => "." +tag.name}.join(' ').html_safe %>
 </div>
 
 
 <div class="project-tag-cloud tech-cloud">
   <h2>Technologies</h2>
 
-  <%= Project.tag_counts_on(:technologies).map {|tag| link_to tag.name, '#', :id => tag.name}.join(' ').html_safe %>
+  <%= Project.tag_counts_on(:technologies).map {|tag| link_to tag.name, '#', "data-filter" => "." + tag.name}.join(' ').html_safe %>
 </div>
 
 <span class='clearfix'></span>
@@ -22,18 +22,37 @@
   <% end %>
 </div>
 
-<% content_for :head do %>
 <script>
-  $(document).ready(function() {
-          
-    $('.project-tag-cloud a').click(function(){
-      var selector = $(this).attr('id');
-      $('#container').isotope({ filter: "." + selector, animationEngine: "jquery" });
-      return false;
-    });
-    
-  });
+ var $container = $('#container');
+
+     // filter buttons
+     $('.project-tag-cloud a').click(function(){
+       var selector = $(this).attr('data-filter');
+       $container.isotope({ filter: selector });
+       return false;
+     });
+
+
+       // switches selected class on buttons
+       $('#options').find('.option-set a').click(function(){
+         var $this = $(this);
+
+         // don't proceed if already selected
+         if ( !$this.hasClass('selected') ) {
+           $this.parents('.option-set').find('.selected').removeClass('selected');
+           $this.addClass('selected');
+         }
+
+       });
+
+
+     $(function(){
+
+       $container.isotope({
+         itemSelector : '.project-div'
+       });
+
+     });
 </script>
-<% end %>
 
 
