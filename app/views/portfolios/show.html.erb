@@ -1,0 +1,47 @@
+<div id="container" class="variable-sizes clearfix infinite-scrolling">
+  <% for photo in @photos %>
+    <div class="photo">
+      <%= display_photo(photo) %>
+      <%= "<h1>#{photo.title}</h1>".html_safe  unless photo.text_only%>
+    </div>
+  <% end %>
+</div>
+
+
+<%= will_paginate @photos %>
+
+<script>
+  $(window).load(function(){
+    $(this).scrollTop(0);
+
+    var $container = $('#container');
+
+    $container.isotope({
+      itemSelector : '.photo', 
+    });
+  
+    $container.infinitescroll({
+      navSelector  : '.pagination',    // selector for the paged navigation 
+      nextSelector : '.next_page',  // selector for the NEXT link (to page 2)
+      itemSelector : '.photo',     // selector for all items you'll retrieve
+      debug        : true,
+      loadingText : "Loading Photos",
+      donetext  : 'No more photos to load.',
+      loadingImg : 'http://i.imgur.com/qkKy8.gif',
+      extraScrollPx: 50,
+      errorCallback: function() { 
+        // fade out the error message after 2 seconds
+        $('#infscr-loading').animate({opacity: .8},2000).fadeOut('normal');   
+      }
+      },
+      // call Isotope as a callback
+      function( newElements ) {
+        $(newElements).imagesLoaded(function(){
+          $container.isotope( 'insert', $( this) )
+        });
+       
+      }
+    );
+
+  });
+</script>

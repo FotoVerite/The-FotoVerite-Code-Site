@@ -4,10 +4,6 @@ class Staff::AccessController < ApplicationController
 
   before_filter :confirm_logged_in, :only => [:menu, :destroy]
 
-  def index
-    menu
-  end
-
   def menu
     # just text
   end

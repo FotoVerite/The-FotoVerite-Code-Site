@@ -20,6 +20,7 @@ end
 
 Factory.define :portfolio do |p|
   p.name "Kevin Pretentious"
+  p.description "A description"
   p.visible true
 end
 

@@ -1,0 +1,25 @@
+<%= error_messages_for(:portfolios) %>
+
+<div class="section">
+
+  <dl>
+    <dt><%= f.label 'name' %></dt>
+    <dd><%= f.text_field(:name) %></dd>
+  </dl>
+
+  <dl>
+    <dt><%= f.label 'description' %></dt>
+    <dd><%= f.text_area(:description, :size => "80x10") %></dd>
+  </dl>
+  
+  <dl>
+     <dt><%= f.label 'Representative Photo' %></dt>
+     <dd><%= f.collection_select(:rep_photo_id, f.object.true_photos, :id, :title) %></dd>
+   </dl>
+  
+  <dl>
+    <dt><%= f.label 'position' %></dt>
+    <dd><%= f.select(:position, [*1..@count]) %></dd>
+  </dl>
+  
+</div>

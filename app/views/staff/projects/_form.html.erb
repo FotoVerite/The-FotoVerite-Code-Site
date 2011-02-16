@@ -12,6 +12,10 @@
     <dd><%= f.text_field(:link) %></dd>
   </dl>
   
+  <dl>
+   <dt><%= f.label 'year' %></dt>
+   <dd><%= f.text_field(:year) %></dd>
+ </dl>
   
   <dl>
     <dt><%= f.label 'photo' %></dt>
@@ -39,7 +43,7 @@
       <%= @features.map {|tag| link_to tag.name, '#', :id => tag.name}.join(' ').html_safe %>
   	</dd>
   </dl>
-  
+  <span class="clearfix"></span>
   <dl>
     <dt><%= f.label :technology_list, 'Technologies' %></dt>
     <dd><%= f.text_field(:technology_list, :size => 100) %></dd>

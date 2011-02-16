@@ -1,0 +1,25 @@
+<table class="list">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Representative Image</th>
+    <th>Photos</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+
+  <%- @portfolios.each do |portfolio| -%>
+  <tr>
+    <td><%= portfolio.name %></td>
+    <td><%= portfolio.description %></td>
+    <td><%= image_tag portfolio.rep_photo.image(:thumb) if portfolio.rep_photo %></td>
+    <td><%= link_to portfolio.photos_count, photos_staff_portfolio_path(portfolio) %></td>
+    <td><%= link_to('Edit', edit_staff_portfolio_path(portfolio), :class => 'action') %></td>
+    <td><%= link_to('Delete', delete_staff_portfolio_path(portfolio), :class => 'action') %></td>
+  </tr>
+  <%- end -%>
+</table>
+
+<div class="pagination">
+  <%= will_paginate(@portfolios, :class => 'apple_pagination') %>
+</div>

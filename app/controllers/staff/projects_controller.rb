@@ -21,7 +21,7 @@ class Staff::ProjectsController < ApplicationController
     if @project.save
       @project.insert_at(new_position)
       flash[:notice] = 'Property type was successfully created.'
-      redirect_to staff_project_path(@project)
+      redirect_to staff_projects_path
     else
       @technologies = Project.tag_counts_on(:technologies)
       @features = Project.tag_counts_on(:features)
@@ -46,7 +46,7 @@ class Staff::ProjectsController < ApplicationController
         @project.insert_at(new_position)
       end
       flash[:notice] = 'Property type was successfully updated.'
-      redirect_to staff_project_path(@project)
+      redirect_to staff_projects_path
     else
       @technologies = Project.tag_counts_on(:technologies)
       @features = Project.tag_counts_on(:features)

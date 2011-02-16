@@ -1,6 +1,9 @@
 <table class="list">
   <tr>
     <th>Name</th>
+    <th>Photo</th>
+    <th>Description</th>
+    <th>Link</th>
     <th>&nbsp;</th>
     <th>&nbsp;</th>
   </tr>
@@ -8,6 +11,9 @@
   <%- @projects.each do |project| -%>
   <tr>
     <td><%= project.name %></td>
+    <td><%= image_tag project.photo(:thumb) %></td>
+    <td><%= project.description %></td>
+    <td><%= project.link %></td>
     <td><%= link_to('Edit', edit_staff_project_path(project), :class => 'action') %></td>
     <td><%= link_to('Delete', delete_staff_project_path(project), :class => 'action') %></td>
   </tr>

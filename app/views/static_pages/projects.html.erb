@@ -7,7 +7,7 @@
 <div class="project-tag-cloud tech-cloud">
   <h2>Technologies</h2>
 
-  <%= Project.tag_counts_on(:technologies).map {|tag| link_to tag.name, '#', "data-filter" => "." + tag.name}.join(' ').html_safe %>
+  <%= Project.tag_counts_on(:technologies).map {|tag| link_to tag.name, '#', "data-filter" => "." + tag.name.gsub(".", '-')}.join(' ').html_safe %>
 </div>
 
 <span class='clearfix'></span>
@@ -16,11 +16,39 @@
 
 <div id="container">  
   <% Project.all.each_with_index do |project, i| %>
-  <div class="project-div <%= %{n n n last}[i % 4] %> <%= project.technologies.join(" ") %> <%= project.features.join(" ") %>">
-    <%= image_tag project.photo(:thumb), :width=>"210", :height=>"130"  %>
+  <div class="project-div shadowbox-link <%= %{n n n last}[i % 4] %> <%= project.technologies.join(" ").gsub(".", '-') %> <%= project.features.join(" ") %>" data-shadowbox='project-<%= i %>'>
+    <%= image_tag project.photo(:thumb)  %>
   </div>
   <% end %>
 </div>
+
+<% Project.all.each_with_index do |project, i|  %>
+  <div id="project-<%= i %>" style="display:none;">
+    <h2><%= project.name %></h2>
+    <hr />
+    <%= image_tag project.photo(:large)  %>
+    <div id="project-description">
+      <p><%= project.description %></p>
+      <span class="year"><strong><%= project.year %></strong></span>
+    </div>
+    <span class="clearfix"></span>
+    <hr />
+    <div class="project-shadowbox-bottom">
+      <div id="link">
+        <h3>Link</h3>
+        <%= link_to project.link, project.link %>
+      </div>
+      <div id="technologies">
+        <h3>Technologies</h3>
+        <%= project.technology_list %>
+      </div>
+      <div id="features">  
+        <h3>Features</h3>
+        <%= project.feature_list %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <script>
  var $container = $('#container');

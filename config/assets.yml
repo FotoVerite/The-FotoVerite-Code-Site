@@ -4,16 +4,22 @@ javascripts:
     general:
         - public/javascripts/jquery.js
         - public/javascripts/rails.js
-        - public/javascripts/jquery.js
         - public/javascripts/application.js
         - public/javascripts/isotope.js
+        - public/javascripts/infinitescroll.js
+        - public/javascripts/projects.js
+        
+        
         
     staff:
         - public/javascripts/jquery.js
+        - public/javascripts/jquery.ui.js
         - public/javascripts/rails.js
         - public/javascripts/application.js
         - public/javascripts/tag_cloud_select.js
         - public/javascripts/photo_inputs.js
+        - public/javascripts/photo_form.js
+        
  
 stylesheets:
     public:

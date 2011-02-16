@@ -58,7 +58,7 @@ ul.nav {
 
 #content {
   padding:10px;
-  background:url(../images/main-bg.png) right top no-repeat;
+  background:url(../images/main-bg.png) right bottom no-repeat;
   min-height:600px;
 }
 
@@ -93,26 +93,89 @@ footer a {
 }
 
 .tech-cloud {
+  width:400px;
   float:right;
 }
 
-.project-tag-cloud h2 {
-  margin:10px 0px;
-  font-size:32px;
-  color:#580740;
-  font-family:'GessoRegular';
+.project-tag-cloud  {
+  margin-bottom:15px;
 }
+  .project-tag-cloud h2 {
+    margin:10px 0px 20px 0;
+    font-size:32px;
+    color:#580740;
+    font-family:'GessoRegular';
+  }
+
+  .project-tag-cloud a {
+    color:blue;
+    text-decoration: none;
+    margin-right:10px;
+  }
 
 .project-div  {
-  width:220px;
-  height:130px;
-  background:red;
-  float:left;
   margin-right:15px;
+  width:300px;
+  height:150px;
   -moz-box-shadow: 0px 0px 10px white;
   -webkit-box-shadow: 0px 0px 4px white;
   box-shadow: 0px 0px 4px white;
   
+}
+
+.project-div img {
+ width:300px;
+ height:150px;
+}
+.shadowbox img {
+  float:left;
+  margin:5px 20px 5px 0;
+}
+.shadowbox div#project-description {
+  float:left;
+  width:400px;
+  height:196px;
+  position:relative;
+  margin:5px 0px 0px;
+}
+
+.shadowbox div#project-description span.year {
+  position:absolute;
+  bottom:5px;
+  right:0px;
+  font-weight: bold;
+}
+
+.project-shadowbox-bottom div {
+  margin-right:25px;
+  width:250px;
+  float:left;
+}
+  .project-shadowbox-bottom h3 {
+   border-bottom: 1px solid #999;
+  }
+  .project-shadowbox-bottom div#technologies {
+    float:right;
+    margin-right:0px;
+  } 
+  .project-shadowbox-bottom div#features {
+    float:right;
+  }
+  
+.photo {
+  clear:both;
+  width:940px;
+  margin-bottom:25px;
+}
+.photo img {
+  margin:auto;
+  display:block;
+  border: 1px solid #999;
+}
+
+.photo h1 {
+  text-align:center;
+  font-size:36px;
 }
 
 /**** Isotope Filtering ****/
@@ -135,6 +198,14 @@ footer a {
 /*     -o-transition-duration: 0.8s;*/
           transition-duration: 0.8s;
 
+}
+
+/* disable CSS transitions for containers with infinite scrolling*/
+.isotope.infinite-scrolling {
+  -webkit-transition: none;
+     -moz-transition: none;
+       -o-transition: none;
+          transition: none;
 }
 
 .isotope {
@@ -165,6 +236,27 @@ footer a {
      -moz-transition-duration: 0s;
 /*     -o-transition-duration: 0s;*/
           transition-duration: 0s;
+}
+
+/**************************
+**  Infinite Scroll
+**************************/
+
+
+#infscr-loading {
+  position: fixed;
+  bottom: 30px;
+  left: 42%;
+  z-index: 100;
+  background: white;
+  background: hsla( 0, 0%, 100%, 0.9 );
+  padding: 20px;
+  color: #222;
+  font-size: 15px;
+  font-weight: bold;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
 }
 
 /* ============= */
@@ -233,4 +325,48 @@ footer a {
 .isotope-hidden.isotope-item {
   pointer-events: none;
   z-index: 1;
+}
+
+/* OVERLAY */
+
+#overlay-container {
+  display:none;
+  z-index:2;
+}
+
+#overlay {
+  width:100%;
+  height:100%;
+  background:black;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:3;
+  opacity:0.5;
+}
+
+#overlay-content {
+  width:800px;
+  min-height:280px;
+  padding:20px;
+  background:white;
+  position: fixed;
+  z-index:3;
+  border: 1px solid #999;
+  top:50%;
+  left:50%;
+  margin-top:-250px;
+  margin-left:-400px;
+  opacity:1;
+  @include border-radius(20px);
+}
+
+
+#overlay-close-link {
+  float:right;
+  display:block;
+  border: 1px solid #999;
+  padding:3px;
+  background:#C5C5C5;
+  cursor:pointer;
 }

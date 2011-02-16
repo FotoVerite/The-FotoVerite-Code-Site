@@ -1,0 +1,19 @@
+<%- @page_title = "View Project: #{@portfolio.name}" -%>
+
+<%= link_to('&laquo; Back to List'.html_safe, staff_portfolios_path, :class => 'back-link') %>
+
+<div class="portfolio show">
+
+<% for photo in @portfolio.photos  %>
+
+ <div class="photo-display shadowbox-link" id="<%= photo.id %>"> 
+ <%=  display_photo(photo) %>
+  <h1><%= photo.title %></h1>
+ </div>
+<% end %>
+</div>
+ 
+
+<script>
+  jQuery.photoFromLink("/staff/portfolios/<%= @portfolio.id %>/photos/");
+</script>

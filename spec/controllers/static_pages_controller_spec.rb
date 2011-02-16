@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe StaticPagesController do
-  include RSpec::Rails::ControllerExampleGroup
 
 
   describe "GET 'show'" do

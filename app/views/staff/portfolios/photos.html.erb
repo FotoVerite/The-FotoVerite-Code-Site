@@ -1,0 +1,62 @@
+<%- @page_title = "Edit Portfolio: #{@portfolio.name}" -%>
+
+<%= link_to('&laquo; Back to List'.html_safe, staff_portfolios_path, :class => 'back-link') %>
+
+<div class="portfolio edit">
+  <h1><%= @page_title %></h1>
+
+  <%= form_for([:staff, @portfolio], :html => {:multipart => true}) do |f| -%>
+  
+  <div id="photos">
+    <%= f.hidden_field :position %>
+    <% unless f.object.new_record?  %>
+      <div id="photo-inputs" style="display:block;" >
+          <ul class="photos-display-list">
+              <%= create_photo_list(f.object, :photos, [@property]) %>
+          </ul>
+      </div>
+      <span class="clearfix"></span>
+      <hr />
+    <% else %>
+      <div id="photo-inputs" style="display:none;" ></div>
+        <%= f.fields_for :photos do |builder| %>
+          <dl>
+            <dt><%= builder.label 'image' %></dt>
+            <dd><%= builder.file_field(:image) %></dd>
+          </dl>
+        <% end %>
+      <%end %>
+      <span id="photos_attributes_fields"></span>
+        <%= link_to "Add additional photo", "#",
+         :id => "add-photo-input", 
+         :class => "action add-image-input",
+         :style => "float:left;" %>
+         
+       <%= link_to "Add additional text", "#",
+        :id => "add-text-input", 
+        :class => "action add-text-input",
+        :style => "float:left;margin-left:20px" %>
+  </div>
+  
+  <span class="clearfix"></span>
+  
+    <div id="operations">
+      <%= submit_tag("Update Portfolio") %>
+      <%= cancel_button staff_portfolios_path %>
+    </div>
+  <%- end -%>
+</div>
+
+<%= content_for :head do %>
+
+  <script>
+      $(document).ready(function() {
+        $("#photos").addImageInputBinding(
+           'photos_attributes',
+           "portfolio", 
+           '<%= sort_staff_portfolio_photos_path(@portfolio) %>'
+         );
+       jQuery.photoFromLink("/staff/portfolios/<%= @portfolio.id %>/photos/");
+      });
+    </script>
+<% end %>

@@ -1,0 +1,15 @@
+<%- @page_title = "Create Portfolio" -%>
+
+<%= link_to('&laquo; Back to List'.html_safe, staff_portfolios_path, :class => 'back-link') %>
+
+<div class="reaction_type new">
+  <h1><%= @page_title %></h1>
+
+  <%= form_for([:staff, @portfolio]) do |f| -%>
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+    <div id="operations">
+      <%= submit_tag("Create Portfolio") %>
+      <%= cancel_button  staff_portfolios_path %>
+    </div>
+  <%- end -%>
+</div>

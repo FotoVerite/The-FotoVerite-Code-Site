@@ -8,6 +8,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :photo_content_type
       t.integer :photo_file_size
       t.datetime :photo_updated_at
+      t.string :year
       t.integer :position
       t.text :description
       t.timestamps

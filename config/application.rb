@@ -42,3 +42,4 @@ module Fotoverite
     
   end
 end
+

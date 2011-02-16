@@ -1,7 +1,7 @@
 <ul class="nav">
-  <li><%= link_to "biography", url_for(:subdomain => "biography") %></li>
-  <li><%= link_to "portfolios", url_for(:subdomain => "portfolios") %></li>
-  <li><%= link_to "projects", url_for(:subdomain => "projects") %></li>
-  <li><%= link_to "testimonials", url_for(:subdomain => "testimonials") %></li>
-  <li><%= link_to "log", url_for(:subdomain => "log") %></li>
+  <li><%= link_to "biography", url_for(:action => "show", :controller => "static_pages", :name => 'biography', :subdomain => "biography") %></li>
+  <li><%= link_to "portfolios", url_for(:action => "index", :controller => "portfolios", :subdomain => "portfolios") %></li>
+  <li><%= link_to "projects", url_for(:action => "show", :controller => "static_pages", :name => 'projects',:subdomain => "projects") %></li>
+  <li><%= link_to "testimonials", url_for(:action => "show", :controller => "static_pages", :name => 'testimonials',:subdomain => "testimonials") %></li>
+  <li><%= link_to "log", url_for(:action => "show", :controller => "static_pages", :name => 'log', :subdomain => "log") %></li>
 </ul>

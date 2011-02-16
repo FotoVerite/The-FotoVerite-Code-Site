@@ -3,7 +3,9 @@ class CreatePortfolios < ActiveRecord::Migration
     create_table :portfolios do |t|
       t.string :name 
       t.integer :position
-      t.integer :photos_count
+      t.integer :photos_count, :default => 0
+      t.boolean :visible, :default => true
+      t.references :rep_photo
       t.text :description
       t.timestamps
     end

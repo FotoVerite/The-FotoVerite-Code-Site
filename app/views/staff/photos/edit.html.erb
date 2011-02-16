@@ -1,0 +1,19 @@
+<div class="photo edit">
+  <%= form_for([:staff, @photo.portfolio, @photo]) do |f| -%>
+    <%= image_tag f.object.image(:medium) %>
+
+    <dl>
+      <dt><%= f.label 'title' %></dt>
+      <dd><%= f.text_field(:title) %></dd>
+    </dl>
+
+    <dl>
+      <dt><%= f.label 'description' %></dt>
+      <dd><%= f.text_area(:description, :size => "40x10") %></dd>
+    </dl>
+
+    <div id="operations">
+      <%= submit_tag("Update Photo", :style => "position:absolute;bottom:10px;right:10px;") %>
+    </div>
+  <%- end -%>
+</div>

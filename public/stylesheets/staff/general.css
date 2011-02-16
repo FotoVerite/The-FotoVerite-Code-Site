@@ -24,6 +24,8 @@ span.offline { color: red; background: none; }
 
 .highlight { font-weight: normal; background: #FFE97A; }
 
+#mainblock {position:relative;}
+
 /* Errors */
 #errorExplanation { display: table; padding: 0; margin: 0.5em 1em 1em 0;
   border: 2px solid #FFA719; background-color: #F0F0F0; color: #333333; 
@@ -106,3 +108,174 @@ dd {display:inline; }
 .center-form {width:520px; margin:30px auto 0 auto;}
 #operations {width:200px; margin:auto; text-align:center;}
 
+/* OVERLAY */
+
+#overlay-container {
+  display:none;
+}
+
+#overlay {
+  width:100%;
+  height:100%;
+  background:black;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:2;
+  opacity:0.5;
+}
+
+#overlay-content {
+  width:980px;
+  min-height:280px;
+  padding:10px;
+  background:white;
+  position: fixed;
+  z-index:3;
+  border: 1px solid #999;
+  top:50%;
+  left:50%;
+  margin-top:-250px;
+  margin-left:-490px;
+  opacity:1;
+}
+
+  #overlay-content img {
+    width:400px;
+    float:left;
+    margin:auto;
+    display:block;
+  }
+
+#overlay-close-link {
+  float:right;
+  display:block;
+  border: 1px solid #999;
+  padding:3px;
+  background:#C5C5C5;
+  cursor:pointer;
+}
+
+.tabs a {
+  color:black;
+  font-weight: bold;
+}
+
+/* tab pane */
+.panes div {
+	display:none;
+	border:1px solid #666;
+	min-height:150px;
+	padding:15px 20px;
+}
+
+.panes > div {
+	display:none;
+	border:1px solid #666;
+	min-height:150px;
+	padding:15px 20px;
+}
+
+#photo-inputs {
+  display:block;
+  border:none;
+  padding:0px;
+}
+
+.photos-display-list {
+  width:918px;
+  float:left;
+  padding:0px;
+}
+
+.photos-display-list a.action {
+  float:none;
+  clear:both;
+}
+
+.photo-thumb, .photo-thumb-placeholder {
+  background:gray;
+  width:142px;
+  height:130px;
+  float:left;
+  border: 1px solid #999;
+  margin:4px;
+  position:relative;
+}
+
+.photo-thumb img {
+  width:100px;
+  margin:10px auto;
+  display:block;
+}
+
+.photo-thumb .delete-image-link {
+  position:absolute;
+  right:5px;
+  bottom:5px;
+  margin:0px;
+  font-size:5px;
+}
+
+.photo-thumb-placeholder {
+  opacity:0.5;
+  list-style-type: none;
+  border: 1px solid yellow;
+}
+
+.photo-placeholder {
+  background:#FFF;
+  list-style-type: none;
+  width:148px;
+  height:114px;
+  border: 1px solid #999;
+}
+
+.add-image-input.action, .add-text-input.action {
+  font-size:12px;
+  background:#F0F0F0;
+  color:black;
+  margin:10px 0px 0px 0px;
+  padding:10px 5px;
+  display:block;
+  font-weight:bold;
+  width: 150px;
+}
+
+.remove-file-input.action {
+  float:none;
+}
+
+#photos_attributes_fields textarea {
+  width:500px;
+  height:100px;
+  margin-right:10px;
+}
+
+#content {
+	float: left;
+	width: 553px;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.photo-display img {
+  display:block;
+  margin:0 auto;
+}
+
+#feedback {
+  position:absolute;
+  top:25px;
+  right:25px;
+}
+
+#feedback span {
+  display:block;
+  width:300px;
+  text-align:center;
+  border: 1px solid #999;
+  height:50;
+  padding:10px;
+  background:gray;
+}

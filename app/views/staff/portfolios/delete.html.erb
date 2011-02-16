@@ -1,0 +1,17 @@
+<%- @page_title = "Delete Portfolio: #{@portfolio.name}" -%>
+
+<%= link_to('&laquo; Back to List'.html_safe, staff_portfolios_path, :class => 'back-link') %>
+
+<div class="portfolio delete">
+  <h1><%= @page_title %></h1>
+  <p>Are you sure you want to <strong>permanently</strong> delete this portfolio?</p>
+  
+  <p class="item"><%= @portfolio.name %></p>
+  
+  <%- form_tag(staff_portfolio_path(@portfolio), :method => :delete) do -%>
+    <div id="operations">
+      <%= submit_tag "Delete Portfolio" %>
+      <input type="button" value="Cancel" class='cancel-button' onclick="window.location.href='<%= staff_portfolios_path%>';" />
+    </div>
+  <%- end -%>
+</div>

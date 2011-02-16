@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.4'
 gem 'acts_as_list'
 gem 'mysql'
 gem 'nice_password'
@@ -12,6 +12,8 @@ gem "compass", ">= 0.10.6"
 gem 'acts-as-taggable-on'
 gem 'delayed_job'
 gem 'bcrypt-ruby', :require => 'bcrypt'  
+gem 'flickraw'
+
 
 
 group :development do 
@@ -41,5 +43,6 @@ group :test do
   gem 'launchy'    # So you can do Then show me the page
   gem 'email_spec', "1.0.0"
   gem 'factory_girl_rails'
+  gem 'simplecov', '>= 0.3.8', :require => false # Will install simplecov-html as a dependency
 end
 

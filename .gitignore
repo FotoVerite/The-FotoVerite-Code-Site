@@ -16,4 +16,6 @@ doc/TODO.txt
 mkmf.log
 solr/data/*
 capybara*
+public/images/portfolios/*
+public/images/projects-photos/*
 
