@@ -5,7 +5,7 @@ namespace :photos do
 
     FlickRaw.shared_secret="fe67cf38024eb0ca"
     # set variables and determine paths and file names
-    id = ENV["ID"] || 72157624996652696
+    id = ENV["ID"] || '72157624996652696'
     Dir.mkdir("tmp_set") unless File.directory?("tmp_set")
     Dir.chdir "tmp_set"
     title = flickr.photosets.getInfo(:photoset_id => id).title

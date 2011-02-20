@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 gem 'rails', '3.0.4'
 gem 'acts_as_list'
-gem 'mysql'
+gem 'mysql2'
 gem 'nice_password'
 gem "will_paginate", "3.0.pre"
 gem 'paperclip', '2.3.8'
