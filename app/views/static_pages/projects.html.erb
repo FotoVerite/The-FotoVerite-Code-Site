@@ -1,13 +1,13 @@
 <div class="project-tag-cloud">
 <h2>Features</h2>
-    <%= Project.tag_counts_on(:features).map {|tag| link_to tag.name, '#', 'data-filter' => "." +tag.name}.join(' ').html_safe %>
+    <%= Project.tag_counts_on(:features).order('tags.name ASC').map {|tag| link_to tag.name, '#', 'data-filter' => "." +tag.name.gsub(/\.|\s/, '-')}.join(' ').html_safe %>
 </div>
 
 
 <div class="project-tag-cloud tech-cloud">
   <h2>Technologies</h2>
 
-  <%= Project.tag_counts_on(:technologies).map {|tag| link_to tag.name, '#', "data-filter" => "." + tag.name.gsub(".", '-')}.join(' ').html_safe %>
+  <%= Project.tag_counts_on(:technologies).order('tags.name ASC').map {|tag| link_to tag.name, '#', "data-filter" => "." + tag.name.gsub(/\.|\s/, '-')}.join(' ').html_safe %>
 </div>
 
 <span class='clearfix'></span>
@@ -16,7 +16,7 @@
 
 <div id="container">  
   <% Project.all.each_with_index do |project, i| %>
-  <div class="project-div shadowbox-link <%= %{n n n last}[i % 4] %> <%= project.technologies.join(" ").gsub(".", '-') %> <%= project.features.join(" ") %>" data-shadowbox='project-<%= i %>'>
+  <div class="project-div shadowbox-link <%= %{n n n last}[i % 4] %> <%= project.technologies.map {|t| t.name.gsub(/\.|\s/, '-')}.join(" ") %> <%= project.features.map {|f| f.name.gsub(/\.|\s/, '-')}.join(" ") %>" data-shadowbox='project-<%= i %>'>
     <%= image_tag project.photo(:thumb)  %>
   </div>
   <% end %>

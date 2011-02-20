@@ -1,7 +1,10 @@
 Fotoverite::Application.routes.draw do
 
+  get "biography" => 'static_pages#show', :name => "biography", :as => "biography"
+  get "projects" => 'static_pages#show', :name => "projects", :as => "projects"
+  
   match '/' => 'portfolios#index', :constraints => { :subdomain => 'portfolios' }
-  match '/' => 'static_pages#show', :name => "projects", :constraints => { :subdomain => 'projects' }, :as => 'projects'
+  match '/' => 'static_pages#show', :name => "projects", :constraints => { :subdomain => 'projects' }
   match '/' => 'static_pages#show', :name => "log", :constraints => { :subdomain => 'log' }
   match '/' => 'static_pages#show', :name => "sites", :constraints => { :subdomain => 'sites' }
   match '/' => 'static_pages#show', :name => "testimonials", :constraints => { :subdomain => 'testimonials' }
@@ -10,6 +13,8 @@ Fotoverite::Application.routes.draw do
   get "site/:name"  => 'static_pages#show', :as => "static_page"
   
   match 'portfolios/:id/page/(:page)' =>  'portfolios#show', :as => 'test'
+  
+  resources :portfolios, :only => [:show, :index]
   
   resources :portfolios, :only => [:show, :index], :constraints => { :subdomain => 'portfolios' } 
 

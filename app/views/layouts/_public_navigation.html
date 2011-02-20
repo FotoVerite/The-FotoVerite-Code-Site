@@ -1,7 +1,15 @@
+<% if false %>
 <ul class="nav">
   <li><%= link_to "biography", url_for(:action => "show", :controller => "static_pages", :name => 'biography', :subdomain => "biography") %></li>
   <li><%= link_to "portfolios", url_for(:action => "index", :controller => "portfolios", :subdomain => "portfolios") %></li>
   <li><%= link_to "projects", url_for(:action => "show", :controller => "static_pages", :name => 'projects',:subdomain => "projects") %></li>
   <li><%= link_to "testimonials", url_for(:action => "show", :controller => "static_pages", :name => 'testimonials',:subdomain => "testimonials") %></li>
   <li><%= link_to "log", url_for(:action => "show", :controller => "static_pages", :name => 'log', :subdomain => "log") %></li>
+</ul>
+<% end %>
+
+<ul class="nav">
+  <li><%= link_to "biography", biography_path %></li>
+  <li><%= link_to "portfolios", portfolios_path %></li>
+  <li><%= link_to "projects", projects_path%></li>
 </ul>
