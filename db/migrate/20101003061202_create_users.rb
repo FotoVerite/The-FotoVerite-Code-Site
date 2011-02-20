@@ -1,5 +1,3 @@
-require "factory_girl"
-require ::Rails.root.to_s + "/spec/factories"
 class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
@@ -20,8 +18,16 @@ class CreateUsers < ActiveRecord::Migration
     add_index :users, :first_name
     add_index :users, :last_name
     add_index :users, :remember_token
-    
-    Factory(:user, :username => 'fotoverite', :password => "password", :password_confirmation => "password") if Rails.env == "development"
+
+    User.create(
+      :first_name => "Matthew",
+      :last_name => "Bergman",
+      :email => "mzbphoto@gmail.com",
+      :email_confirmation => "mzbphoto@gmail.com",
+      :username => 'fotoverite',
+      :password => "password",
+      :password_confirmation => "password"
+    )
   end
 
   def self.down
